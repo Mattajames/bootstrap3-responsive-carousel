@@ -1,0 +1,242 @@
+@import "../stylesheets/bootstrap";
+@import "_svg";
+
+$brandRed:#d72035;
+$white: #ffffff;
+$offWhite: #e8e8e8;
+$black: #000000;
+$grey: #7d7d7d;
+$lightgrey: #eee7e7;
+
+$screen-md-min: 992px;
+$screen-xs-min: 716px;
+
+h1, h2, h3{
+    font-family: sans-serif;
+    margin: 0px;
+    padding: 0px;
+}
+h1{
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 4em;
+    @media (max-width: $screen-md-max) {
+      font-size: 2em;
+    }
+}
+h2{
+    @media (max-width: $screen-md-max) {
+          margin-top: 1em;
+    }
+}
+p{
+    font-size: .9em;
+}
+a {
+    color: $white;
+    &:hover,&:focus{
+    color: $white;
+    }
+}
+.container-liquid {
+    margin: 0 auto;
+    padding: 0% 2%;
+    margin: 0% 2%;
+}
+header{
+    @include make-row();
+    .logo{
+        background-image: $logo;
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 300px!important;
+        @include make-sm-column(3);
+        @include size (100%, 100px);
+    }
+    nav{
+        @include make-md-column(9 );
+        @include size (100%, 100px);
+        padding: 0px;
+        float: right;
+            li {
+                float: left;
+                list-style-type: none;
+                margin: 4% 0;
+                padding: 0;
+                text-align: center;
+                }
+            a {
+                display: block;
+                width: 120px;
+                color: $grey;
+                font-family: sans-serif;
+                font-weight: bold;
+                &:hover{
+                color: $black;
+                text-decoration: none
+                }
+            }
+        }
+}/*END Header*/
+
+/*Carousel*/
+//.carousel {
+//    margin-bottom: 100px;
+//}
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    right: 0;
+    z-index: 10;
+    left: 65%;
+    background-color: $brandRed;
+    color: $white;
+    text-align: left;
+    padding: 2em;
+    text-shadow: none;
+        @media (max-width: $screen-sm-max) {
+            left:0;
+            height:40%;
+            top: 60%;
+        }
+    @media (max-width: $screen-xs-max) {
+            height:60%;
+            top: 40%;
+    }
+}
+/* Declare heights because of positioning of img element */
+.carousel .item {
+    height: 500px;
+    background-color:$offWhite;
+}
+.carousel img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+}
+
+.carousel-buttons {
+    z-index: 1100;
+    position: absolute;
+    width: 80%;
+    background: #ffffff; /* Old browsers */
+    background: -moz-linear-gradient(top, #ffffff 0%, #f1f1f1 56%, #f1f1f1 56%, #e1e1e1 58%, #f1f1f1 93%, #f1f1f1 65%, #f1f1f1 59%, #f6f6f6 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(56%,#f1f1f1), color-stop(56%,#f1f1f1), color-stop(58%,#e1e1e1), color-stop(93%,#f1f1f1), color-stop(65%,#f1f1f1), color-stop(59%,#f1f1f1), color-stop(100%,#f6f6f6)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #ffffff 0%,#f1f1f1 56%,#f1f1f1 56%,#e1e1e1 58%,#f1f1f1 93%,#f1f1f1 65%,#f1f1f1 59%,#f6f6f6 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #ffffff 0%,#f1f1f1 56%,#f1f1f1 56%,#e1e1e1 58%,#f1f1f1 93%,#f1f1f1 65%,#f1f1f1 59%,#f6f6f6 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #ffffff 0%,#f1f1f1 56%,#f1f1f1 56%,#e1e1e1 58%,#f1f1f1 93%,#f1f1f1 65%,#f1f1f1 59%,#f6f6f6 100%); /* IE10+ */
+    bottom:-65px;
+    border: solid #d6d6d6 5px;
+    & a{
+    font-size: 2.5em;
+    text-align: center;
+    color: grey;
+    display:block;
+    line-height:50px;
+    text-decoration: none;
+    }
+    .active {
+        outline: thick solid $grey;
+    }
+    .active:after, .active:before {
+    bottom: 100%;
+    left: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    }
+
+    .active:after {
+    border-color: rgba(136, 183, 213, 0);
+    border-bottom-color: $grey;
+    border-width: 20px;
+    margin-left: -20px;
+    }
+    .active:before {
+    border-width: 20px;
+    margin-left: -20px;
+    }
+    
+    @media (max-width: $screen-sm-max) {
+     bottom:-100px;
+    }
+}
+.carousel-buttons > div {
+    padding:20px;
+    border-right:1px solid #ddd;
+}
+
+.carousel-buttons:first-child{
+    margin-left: 10%
+}
+
+.carousel-buttons:last-child{
+    margin-right: 10%
+}
+
+/*END Carousel*/
+
+
+.content{
+    @include make-row();
+    padding: 8em 2em 5em;
+    margin: 0;
+    background-color: $offWhite;
+        .image{
+            @include make-lg-column(5);
+        }
+        .description{
+             @include make-lg-column(7);
+            h2{
+            font-weight: bold;
+            margin-bottom: 1.4em;
+            }
+        }
+        .placeHolderImage{
+            border: solid $white 5px;
+            background-color: $grey;
+            width: 100%;
+            height: 300px;
+        }
+}
+
+footer{
+    @include make-row();
+    margin: 0;
+    padding: 1.6em ;
+    p{
+        font-size: 0.9em;
+        color: $grey;
+    }
+    .contact{
+        @include make-lg-column(8);
+        }
+        .copy p {
+            color: $offWhite;
+        }
+    .warranty{
+        @include make-lg-column(4);
+        }
+    }
+
+.btn.btn-danger {
+    color: #ffffff;
+    padding: 0.6em 1.5em;
+    margin-top: 2.3em;
+    background-color: #D9534F;
+    background-image: linear-gradient(to bottom, #c21e26, #f12b3e);
+    border-color: #B92C28 #B92C28 #B92C28;
+    border-radius: 0;
+}
+.btn.btn-danger:hover {
+    color: #ffffff;
+    background-color: #f12b3e;
+    background-image: linear-gradient(to bottom, #f12b3e, #f12b3e);
+    border-color: #B92C28 #B92C28 #B92C28;
+}
